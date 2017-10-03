@@ -1,0 +1,15 @@
+{
+  "name": "react-native-special-text",
+  "description": "This component parses text input for special display needs.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Digitova/react-native-special-text",
+  "author": "Christopher Rathgeb <crathgeb@digitova.com>",
+  "license": "MIT",
+  "main": "./src/index.js",
+  "dependencies": {
+	"deepmerge": "^1.3.2",
+	"react": "16.0.0-alpha.12",
+	"react-native": "0.47.1",
+	"react-native-vector-icons": "^4.3.0"
+  },
+}
