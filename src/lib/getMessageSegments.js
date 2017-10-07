@@ -19,13 +19,7 @@ export default getMessageSegments = (messageWords,urls) => {
 		}
 	}
 
-	for(let j=0;j<messageSegments.length;j++){
-		messageSegments[j] = messageSegments[j].trim()
-		if(messageSegments[j] == ''){
-			messageSegments.splice(j,1)
-		}
-	}
-
+	console.log(messageSegments)
 	return messageSegments
 }
 
