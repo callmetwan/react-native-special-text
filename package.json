@@ -1,7 +1,7 @@
 {
   "name": "react-native-special-text",
   "description": "This component parses text input for special display needs.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "https://github.com/Digitova/react-native-special-text",
   "author": "Christopher Rathgeb <crathgeb@digitova.com>",
   "license": "MIT",
