@@ -18,6 +18,9 @@ npm install react-native-special-text --save
 
 ## Usage
 
+```
+import { SpecialText } from 'react-native-special-text'
+```
 
 ```
 <SpecialText
