@@ -28,14 +28,14 @@ export default class extends Component {
 	}
 
 	renderBasicMessage = () =>
-		<View style={[Styles.container,this.props.style]}>
+		<View style={[Styles.container,this.props.containerStyle]}>
 			<Text style={[this.props.textStyle]}>
 				{this.props.children}
 			</Text>
 		</View>
 
 	renderUrlMessage = () =>
-		<View style={[Styles.container,this.props.style]}>
+		<View style={[Styles.container,this.props.containerStyle]}>
 			{ this.state.messageSegments.map((segment,key) => this.renderMessageSegment(segment,key)) }
 		</View>
 
