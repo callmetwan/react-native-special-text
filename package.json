@@ -6,6 +6,22 @@
   "author": "Christopher Rathgeb <crathgeb@digitova.com>",
   "license": "MIT",
   "main": "./src/index.js",
+  "keywords": [
+	"embeddable",
+	"react-native",
+	"text",
+	"link",
+	"text",
+	"string",
+	"url",
+	"parse",
+	"links",
+	"clickable",
+	"tappable",
+	"a",
+	"href",
+	"highlighting"
+  ],
   "repository": {
 	"type": "git",
 	"url": "git+https://github.com/Digitova/react-native-special-text.git"
