@@ -5,42 +5,65 @@ import getMessageSegments from './lib/getMessageSegments'
 
 
 export default class extends Component {
+
 	constructor(props) {
 		super(props)
-	}
 
-	render = () => {
 		const urls = getUrlsFromMessage(this.props.children)
+		const messageWords = this.props.children.split(" ")
+		const messageSegments = getMessageSegments(messageWords,urls)
 
-		if(urls.length > 0){
-			return <View style={[Styles.container,this.props.style]}>{ this.renderUrlMessage(this.props.children,urls) }</View>
-		} else {
-			return <View style={[this.props.style]}><Text style={[this.props.textStyle]}>{this.props.children}</Text></View>
+		this.state = {
+			urls,
+			messageSegments
 		}
 	}
 
-	renderUrlMessage = (message, urls) => {
-
-		const messageWords = message.split(" ")
-		const messageSegments = getMessageSegments(messageWords,urls)
-
-		return <View style={Styles.container}>
-			{
-				messageSegments.map((segment,key) => {
-					if(urls.indexOf(segment) >= 0){
-						return <TouchableHighlight
-								onPress={() => this.props.onLinkPress(segment)}
-								key={key}
-							>
-							<Text style={[Styles.linkText]}>{segment} </Text>
-						</TouchableHighlight>
-					} else {
-						return <Text style={[this.props.textStyle]} key={key}>{segment} </Text>
-					}
-				})
-			}
-		</View>
+	render() {
+		if(this.isUrlMessage()){
+			return this.renderUrlMessage()
+		} else {
+			return this.renderBasicMessage()
+		}
 	}
+
+	renderBasicMessage = () =>
+		<View style={[Styles.container,this.props.style]}>
+			<Text style={[this.props.textStyle]}>
+				{this.props.children}
+			</Text>
+		</View>
+
+	renderUrlMessage = () =>
+		<View style={[Styles.container,this.props.style]}>
+			{ this.state.messageSegments.map((segment,key) => this.renderMessageSegment(segment,key)) }
+		</View>
+
+	renderMessageSegment = (segment, key) => {
+		const { urls } = this.state
+
+		if(urls.indexOf(segment) >= 0){
+			return this.renderLink(segment,key)
+		} else {
+			return <Text style={[this.props.textStyle]} key={key}>{segment} </Text>
+		}
+	}
+
+
+	renderLink = (link, key) =>
+		<TouchableHighlight
+			onPress={ () => this.props.onLinkPress(segment) }
+			underlayColor={ this.props.hasOwnProperty("underlayColor") ? this.props.underlayColor : "#fcfcfc" }
+			key={key}
+		>
+			<Text style={[Styles.linkText,this.props.linkStyle]}>
+				{link}
+			</Text>
+		</TouchableHighlight>
+
+	isUrlMessage = () =>
+		this.state.urls.length > 0
+
 }
 
 const Styles = StyleSheet.create({
