@@ -19,7 +19,6 @@ export default getMessageSegments = (messageWords,urls) => {
 		}
 	}
 
-	console.log(messageSegments)
 	return messageSegments
 }
 
