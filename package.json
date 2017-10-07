@@ -6,6 +6,10 @@
   "author": "Christopher Rathgeb <crathgeb@digitova.com>",
   "license": "MIT",
   "main": "./src/index.js",
+  "repository": {
+	"type": "git",
+	"url": "git+https://github.com/Digitova/react-native-special-text.git"
+  },
   "dependencies": {
 	"react": "16.0.0-alpha.12",
 	"react-native": "0.47.1",
