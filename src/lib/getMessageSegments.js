@@ -6,7 +6,7 @@ export default getMessageSegments = (messageWords,urls) => {
 	for(let i=0;i<messageWords.length;i++){
 		const word = messageWords[i]
 
-		if(urls.indexOf(word) >= 0){
+		if(urls.indexOf(word.toLowerCase().trim()) >= 0){
 			messageSegments[segmentIndex] = messageSegments[segmentIndex].trim()
 			segmentIndex++
 			messageSegments[segmentIndex] = word

@@ -10,7 +10,7 @@ export default class extends Component {
 		super(props)
 
 		const urls = getUrlsFromMessage(this.props.children)
-		const messageWords = this.props.children.split(" ")
+		const messageWords = this.props.children.split(/(?=[\s+])/)
 		const messageSegments = getMessageSegments(messageWords,urls)
 
 		this.state = {
@@ -42,7 +42,8 @@ export default class extends Component {
 	renderMessageSegment = (segment, key) => {
 		const { urls } = this.state
 
-		if(urls.indexOf(segment) >= 0){
+		segment.toLowerCase().trim()
+		if(urls.indexOf(segment.toLowerCase().trim()) >= 0){
 			return this.renderLink(segment,key)
 		} else {
 			return <Text style={[this.props.textStyle]} key={key}>{segment} </Text>
@@ -52,12 +53,12 @@ export default class extends Component {
 
 	renderLink = (link, key) =>
 		<TouchableHighlight
-			onPress={ () => this.props.onLinkPress(segment) }
+			onPress={ () => this.props.onLinkPress(link.toLowerCase().trim()) }
 			underlayColor={ this.props.hasOwnProperty("underlayColor") ? this.props.underlayColor : "#fcfcfc" }
 			key={key}
 		>
 			<Text style={[Styles.linkText,this.props.linkStyle]}>
-				{link}
+				{link.toLowerCase().trim()}
 			</Text>
 		</TouchableHighlight>
 
