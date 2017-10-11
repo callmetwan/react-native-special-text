@@ -26,8 +26,4 @@
 	"type": "git",
 	"url": "git+https://github.com/Digitova/react-native-special-text.git"
   },
-  "dependencies": {
-	"react": "16.0.0-alpha.12",
-	"react-native": "0.47.1"
-  }
 }
